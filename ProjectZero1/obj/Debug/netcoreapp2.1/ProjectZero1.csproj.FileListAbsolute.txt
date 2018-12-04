@@ -1,0 +1,10 @@
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\bin\Debug\netcoreapp2.1\ProjectZero1.deps.json
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\bin\Debug\netcoreapp2.1\ProjectZero1.runtimeconfig.json
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\bin\Debug\netcoreapp2.1\ProjectZero1.runtimeconfig.dev.json
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\bin\Debug\netcoreapp2.1\ProjectZero1.dll
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\bin\Debug\netcoreapp2.1\ProjectZero1.pdb
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\obj\Debug\netcoreapp2.1\ProjectZero1.csproj.CoreCompileInputs.cache
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\obj\Debug\netcoreapp2.1\ProjectZero1.AssemblyInfoInputs.cache
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\obj\Debug\netcoreapp2.1\ProjectZero1.AssemblyInfo.cs
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\obj\Debug\netcoreapp2.1\ProjectZero1.dll
+C:\revature\Projects\ProjectZero1\ProjectZero1\ProjectZero1\obj\Debug\netcoreapp2.1\ProjectZero1.pdb

@@ -1,0 +1,14 @@
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\bin\Debug\netcoreapp2.1\PizzaRestaurant.Tests.deps.json
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\bin\Debug\netcoreapp2.1\PizzaRestaurant.Tests.runtimeconfig.json
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\bin\Debug\netcoreapp2.1\PizzaRestaurant.Tests.runtimeconfig.dev.json
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\bin\Debug\netcoreapp2.1\PizzaRestaurant.Tests.dll
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\obj\Debug\netcoreapp2.1\PizzaRestaurant.Tests.csproj.CoreCompileInputs.cache
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\obj\Debug\netcoreapp2.1\PizzaRestaurant.Tests.AssemblyInfoInputs.cache
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\obj\Debug\netcoreapp2.1\PizzaRestaurant.Tests.AssemblyInfo.cs
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\obj\Debug\netcoreapp2.1\PizzaRestaurant.Tests.csprojAssemblyReference.cache
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\bin\Debug\netcoreapp2.1\PizzaRestaurant.Tests.pdb
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\bin\Debug\netcoreapp2.1\PizzaRestaurant.Library.dll
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\bin\Debug\netcoreapp2.1\PizzaRestaurant.Library.pdb
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\obj\Debug\netcoreapp2.1\PizzaRestaurant.Tests.csproj.CopyComplete
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\obj\Debug\netcoreapp2.1\PizzaRestaurant.Tests.dll
+C:\revature\Projects\ProjectZero1\ProjectZero1\PizzaRestaurant.Tests\obj\Debug\netcoreapp2.1\PizzaRestaurant.Tests.pdb
