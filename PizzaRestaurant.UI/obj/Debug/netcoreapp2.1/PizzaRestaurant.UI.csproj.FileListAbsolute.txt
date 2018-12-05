@@ -26,3 +26,17 @@ C:\revature\Projects\del this\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRe
 C:\revature\Projects\del this\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.csproj.CopyComplete
 C:\revature\Projects\del this\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.dll
 C:\revature\Projects\del this\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.pdb
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\bin\Debug\netcoreapp2.1\PizzaRestaurant.UI.deps.json
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\bin\Debug\netcoreapp2.1\PizzaRestaurant.UI.runtimeconfig.json
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\bin\Debug\netcoreapp2.1\PizzaRestaurant.UI.runtimeconfig.dev.json
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\bin\Debug\netcoreapp2.1\PizzaRestaurant.UI.dll
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\bin\Debug\netcoreapp2.1\PizzaRestaurant.UI.pdb
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\bin\Debug\netcoreapp2.1\PizzaRestaurant.Library.dll
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\bin\Debug\netcoreapp2.1\PizzaRestaurant.Library.pdb
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.csprojAssemblyReference.cache
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.csproj.CoreCompileInputs.cache
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.AssemblyInfoInputs.cache
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.AssemblyInfo.cs
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.csproj.CopyComplete
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.dll
+C:\revature\Projects\ProjectZero\PizzaRestaurant.UI\obj\Debug\netcoreapp2.1\PizzaRestaurant.UI.pdb

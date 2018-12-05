@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\revature\\Projects\\del this\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj",
+      "projectUniqueName": "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj",
       "projectName": "PizzaRestaurant.Library",
-      "projectPath": "C:\\revature\\Projects\\del this\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj",
+      "projectPath": "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj",
       "packagesPath": "C:\\Users\\Beau\\.nuget\\packages\\",
-      "outputPath": "C:\\revature\\Projects\\del this\\PizzaRestaurant.Library\\obj\\",
+      "outputPath": "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
