@@ -1,0 +1,37 @@
+CREATE DATABASE PizzaOrders
+GO
+
+CREATE SCHEMA PizzaOrders
+
+CREATE TABLE PizzaOrders.Users
+(
+	UserID INT IDENTITY NOT NULL,
+	FirstName NVARCHAR(100) NOT NULL,
+	LastName NVARCHAR(100) NOT NULL,
+	LastOrderTime DATETIME2 NULL,
+	CONSTRAINT PK_User_ID PRIMARY KEY (UserID)
+)
+
+
+CREATE TABLE PizzaOrders.Orders
+(
+	OrderID INT IDENTITY NOT NULL,
+	UserID INT NOT NULL,
+	OrderLocationID INT NOT NULL,
+	OrderTime DATETIME2 NOT NULL,
+	SubTotal MONEY NOT NULL,
+	NetTotal MONEY NOT NULL
+	CONSTRAINT PK_Orders_OrderID PRIMARY KEY (OrderID)
+)
+
+ALTER TABLE PizzaOrders.Orders
+ADD CONSTRAINT FK_Orders_Users_UserID FOREIGN KEY (UserID) REFERENCES PizzaOrders.Users(UserID)
+
+CREATE TABLE PizzaOrders.Inventory
+(
+	ItemID INT IDENTITY NOT NULL,
+	ItemName NVARCHAR(100) NOT NULL,
+)
+
+SELECT * FROM PizzaOrders.Users
+SELECT * FROM PizzaOrders.Orders

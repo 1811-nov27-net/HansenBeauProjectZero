@@ -5875,11 +5875,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Test\\PizzaRestaurant.Test.csproj",
+      "projectUniqueName": "C:\\revature\\ProjectZeroRepo\\PizzaRestaurant.Test\\PizzaRestaurant.Test.csproj",
       "projectName": "PizzaRestaurant.Test",
-      "projectPath": "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Test\\PizzaRestaurant.Test.csproj",
+      "projectPath": "C:\\revature\\ProjectZeroRepo\\PizzaRestaurant.Test\\PizzaRestaurant.Test.csproj",
       "packagesPath": "C:\\Users\\Beau\\.nuget\\packages\\",
-      "outputPath": "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Test\\obj\\",
+      "outputPath": "C:\\revature\\ProjectZeroRepo\\PizzaRestaurant.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5898,8 +5898,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj": {
-              "projectPath": "C:\\revature\\Projects\\ProjectZero\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj"
+            "C:\\revature\\ProjectZeroRepo\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj": {
+              "projectPath": "C:\\revature\\ProjectZeroRepo\\PizzaRestaurant.Library\\PizzaRestaurant.Library.csproj"
             }
           }
         }

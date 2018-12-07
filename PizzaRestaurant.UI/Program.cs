@@ -8,9 +8,6 @@ namespace PizzaRestaurant.UI
     {
         static void Main()
         {
-            List<Order> orderData = new List<Order>();
-            List<string> userData = new List<string>();
-
             Console.WriteLine("Welcome to the user interface for 'Pizza Store'");
 
             Console.WriteLine("Please sign in");
