@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PizzaRestaurant.DataAccess\PizzaRestaurant.DataAccess.csproj" />
     <ProjectReference Include="..\PizzaRestaurant.Library\PizzaRestaurant.Library.csproj" />
   </ItemGroup>
 

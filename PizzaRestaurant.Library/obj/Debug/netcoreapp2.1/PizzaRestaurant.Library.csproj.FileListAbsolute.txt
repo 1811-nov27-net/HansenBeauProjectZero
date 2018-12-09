@@ -24,3 +24,12 @@ C:\revature\Projects\ProjectZero\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1
 C:\revature\Projects\ProjectZero\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.AssemblyInfo.cs
 C:\revature\Projects\ProjectZero\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.dll
 C:\revature\Projects\ProjectZero\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.pdb
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\bin\Debug\netcoreapp2.1\PizzaRestaurant.Library.deps.json
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\bin\Debug\netcoreapp2.1\PizzaRestaurant.Library.dll
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\bin\Debug\netcoreapp2.1\PizzaRestaurant.Library.pdb
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.csprojAssemblyReference.cache
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.csproj.CoreCompileInputs.cache
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.AssemblyInfoInputs.cache
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.AssemblyInfo.cs
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.dll
+C:\revature\ProjectZeroRepo\PizzaRestaurant.Library\obj\Debug\netcoreapp2.1\PizzaRestaurant.Library.pdb
