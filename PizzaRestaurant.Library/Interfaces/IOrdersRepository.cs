@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaRestaurant.DataAccess
+namespace PizzaRestaurant.Library.Interfaces
 {
-    class AutoMapper
+    interface IOrdersRepository
     {
+        
     }
 }

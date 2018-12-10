@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaRestaurant.DataAccess
+namespace PizzaRestaurant.DataAccess.Repositories
 {
-    class AutoMapper
+    class OrdersRepository
     {
     }
 }

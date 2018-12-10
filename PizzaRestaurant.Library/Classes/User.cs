@@ -7,6 +7,10 @@ namespace PizzaRestaurant.Library
 {
     public class User
     {
+        public User()
+        {
+
+        }
         public User(string inputfName, string inputlName)
         {
             _fName = inputfName;
@@ -62,11 +66,13 @@ namespace PizzaRestaurant.Library
         /// <summary>
         /// Initializes lastOrderTime as public property with private back storage.
         /// </summary>
-        private DateTime _lastOrderTime;
-        public DateTime lastOrderTime
+        private DateTime? _lastOrderTime;
+        public DateTime? lastOrderTime
         {
             get => _lastOrderTime;
             set => _lastOrderTime = value;
         }
+
+        public List<Order> Order { get; set; } = new List<Order>();
     }
 }
