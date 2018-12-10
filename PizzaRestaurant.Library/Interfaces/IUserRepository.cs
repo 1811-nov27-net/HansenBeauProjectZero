@@ -10,17 +10,17 @@ namespace PizzaRestaurant.Library
         /// View all users
         /// </summary>
         /// <returns>The collection of Users</returns>
-        IEnumerable<User> GetUsers();
+        //List<User> GetUsers();
 
         /// <summary>
         /// Add a user to the PizzaOrders.Users table
         /// </summary>
-        void AddUser();
+        void AddUser(User user);
 
         /// <summary>
         /// Remove User from PizzaOrders.Users table
         /// </summary>
-        void DeleteUser();
+        void DeleteUser(User user);
 
         /// <summary>
         /// 

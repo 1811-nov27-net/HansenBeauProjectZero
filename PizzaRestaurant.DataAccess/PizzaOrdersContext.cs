@@ -28,7 +28,6 @@ namespace PizzaRestaurant.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-
             }
         }
 
@@ -216,7 +215,7 @@ namespace PizzaRestaurant.DataAccess
             modelBuilder.Entity<Users>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK_User_ID");
+                    .HasName("PK_User_UserID");
 
                 entity.ToTable("Users", "PizzaOrders");
 

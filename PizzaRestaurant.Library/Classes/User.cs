@@ -1,65 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace PizzaRestaurant.Library
 {
     public class User
     {
-        /// <summary>
-        /// HashSet to hold collection of Users.  HashSet is collection of choice 
-        /// to avoid storing multiple copies of the same user, and because 
-        /// indexing is not important.  Use of this HashSet is to aid in searching
-        /// for a user (LINQ, probably), and searching
-        /// </summary>
-        static Dictionary<User, List<Order>> UserDatabase = new Dictionary<User, List<Order>>()
+        public User(string inputfName, string inputlName)
         {
+            _fName = inputfName;
+            _lName = inputlName;
+        }
 
-        };
-        /// <summary>
-        /// constructors are designed initialize fName, lName, and location. 
-        /// multiple constructors are utilized to give choice to the client
-        /// to pass through the fields that he/she wants
-        /// </summary>
-        //public User()
-        //{
-        //    _deliveryName = "";
-        //    _location1 = "";
-        //    _location2 = "";
-        //    _location3 = "";
-
-        //}
-
-        //public User(string inputName, string inputLoc1, string inputLoc2, string inputLoc3)
-        //{
-        //    _deliveryName = inputName;
-        //    _location1 = inputLoc1;
-        //    _location2 = inputLoc2;
-        //    _location3 = inputLoc3;
-        //}
-
-
-        /// <summary>
-        /// the properties for "First Name", "Last Name", and "Location" 
-        /// are built as read-write with back calling
-        /// </summary>
-        private string _deliveryName;
-        public string deliveryName
+        private int _userId;
+        public int userId
         {
-            get => _deliveryName;
+            get => _userId;
+            set => _userId = value;
+        }
+
+        private string _fName;
+        public string fName
+        {
+            get => _fName;
             set
             {
-                if (value != null)
+                try
                 {
-                    _deliveryName = value;
+                    _fName = value ?? throw new ArgumentNullException(nameof(value));
                 }
-                else
+                catch (ArgumentNullException)
                 {
-                    _deliveryName = "";
-                };
+
+                    _fName = "";
+                }
+            }
+        }
+        /// <summary>
+        /// Initializes lName as public property with private back storage.
+        /// Simple exception handling with null argument
+        /// </summary>
+        private string _lName;
+        public string lName
+        {
+            get => _lName;
+            set
+            {
+                try
+                {
+                    _lName = value ?? throw new ArgumentNullException(nameof(value));
+                }
+                catch (ArgumentNullException)
+                {
+
+                    _lName = "";
+                }
             }
         }
 
-        
+        /// <summary>
+        /// Initializes lastOrderTime as public property with private back storage.
+        /// </summary>
+        private DateTime _lastOrderTime;
+        public DateTime lastOrderTime
+        {
+            get => _lastOrderTime;
+            set => _lastOrderTime = value;
+        }
     }
 }
