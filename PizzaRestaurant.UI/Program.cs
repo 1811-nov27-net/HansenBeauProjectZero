@@ -11,12 +11,12 @@ namespace PizzaRestaurant.UI
     {
         public static void Main()
         {
-            DbContextOptionsBuilder<PizzaOrdersContext> optionsBuilder = new DbContextOptionsBuilder<PizzaOrdersContext>();
-            optionsBuilder.UseSqlServer(SecretConfiguration.ConnectionString);
-            DbContextOptions<PizzaOrdersContext> options = optionsBuilder.Options;
+            //DbContextOptionsBuilder<PizzaOrdersContext> optionsBuilder = new DbContextOptionsBuilder<PizzaOrdersContext>();
+            //optionsBuilder.UseSqlServer(SecretConfiguration.ConnectionString);
+            //DbContextOptions<PizzaOrdersContext> options = optionsBuilder.Options;
 
-            PizzaOrdersContext dbContext = new PizzaOrdersContext(options);
-            UsersRepository userRepo = new UsersRepository(dbContext);
+            //PizzaOrdersContext dbContext = new PizzaOrdersContext(options);
+            //UsersRepository userRepo = new UsersRepository(dbContext);
             //XmlSerializer serializer = new XmlSerializer(typeof(List<Users>));
 
             Console.WriteLine("Welcome to the user interface for 'Pizza Store'");
@@ -29,8 +29,8 @@ namespace PizzaRestaurant.UI
             string userName = fName + lName;
             //Users prevUser = dbContext.Users.Find();
 
-            User newUser = new User(fName, lName);
-            userRepo.AddUser(newUser);
+            // User newUser = new User(fName, lName);
+            //userRepo.InsertUser(newUser);
             Console.WriteLine("{0}, {1} add as a new user, fName, lName");
 
             Console.WriteLine("What do you want to do?");

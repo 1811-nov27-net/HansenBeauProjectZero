@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PizzaRestaurant.DataAccess
 {
@@ -8,14 +7,14 @@ namespace PizzaRestaurant.DataAccess
     {
         public Users()
         {
-            Orders = new HashSet<Orders>();
+            Address = new HashSet<Address>();
         }
 
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime? LastOrderTime { get; set; }
+        public int DefaultAddressId { get; set; }
 
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Address> Address { get; set; }
     }
 }

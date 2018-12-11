@@ -6,34 +6,11 @@ namespace PizzaRestaurant.Library
 {
     public interface IUserRepository
     {
-        /// <summary>
-        /// View all users
-        /// </summary>
-        /// <returns>The collection of Users</returns>
-        //List<User> GetUsers();
-
-        /// <summary>
-        /// Add a user to the PizzaOrders.Users table
-        /// </summary>
-        void AddUser(User user);
-
-        /// <summary>
-        /// Remove User from PizzaOrders.Users table
-        /// </summary>
-        void DeleteUser(User user);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        void UpdateUser();
-
-
-        /// <summary>
-        /// Save any changes
-        /// </summary>
+        IEnumerable<User> GetUsers();
+        User GetUsersByName(string fName, string lName);
+        void InsertUser(User user);
+        void UpdateUser(User user);
+        void DeleteUser(int userID);
         void Save();
-
-        
-        
     }
 }

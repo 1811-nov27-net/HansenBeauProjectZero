@@ -3,20 +3,22 @@ using System.Collections.Generic;
 
 namespace PizzaRestaurant.DataAccess
 {
-    public partial class DeliveryLocations
+    public partial class Address
     {
-        public DeliveryLocations()
+        public Address()
         {
-            Orders = new HashSet<Orders>();
+            OrderHeader = new HashSet<OrderHeader>();
         }
 
-        public int DeliveryLocId { get; set; }
+        public int AddressId { get; set; }
+        public int UserId { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public int Zipcode { get; set; }
 
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual Users User { get; set; }
+        public virtual ICollection<OrderHeader> OrderHeader { get; set; }
     }
 }
