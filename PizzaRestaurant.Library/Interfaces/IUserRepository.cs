@@ -7,7 +7,7 @@ namespace PizzaRestaurant.Library
     public interface IUserRepository
     {
         IEnumerable<User> GetUsers();
-        User GetUsersByName(string fName, string lName);
+        IEnumerable<User> GetUsersByName(string fName, string lName);
         void InsertUser(User user);
         void UpdateUser(User user);
         void DeleteUser(int userID);

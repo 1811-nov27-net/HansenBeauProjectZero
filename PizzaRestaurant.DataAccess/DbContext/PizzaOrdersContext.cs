@@ -6,7 +6,7 @@ namespace PizzaRestaurant.DataAccess
 {
     public partial class PizzaOrdersContext : DbContext
     {
-        public PizzaOrdersContext()
+        public PizzaOrdersContext(PizzaOrdersContext dbContext)
         {
         }
 
@@ -27,6 +27,7 @@ namespace PizzaRestaurant.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
+
             }
         }
 
@@ -100,10 +101,7 @@ namespace PizzaRestaurant.DataAccess
 
                 entity.Property(e => e.StoreId).HasColumnName("StoreID");
 
-                entity.Property(e => e.UserId)
-                    .IsRequired()
-                    .HasColumnName("UserID")
-                    .HasMaxLength(100);
+                entity.Property(e => e.UserId).HasColumnName("UserID");
 
                 entity.HasOne(d => d.OrderAddress)
                     .WithMany(p => p.OrderHeader)

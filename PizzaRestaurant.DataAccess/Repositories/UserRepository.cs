@@ -23,14 +23,12 @@ namespace PizzaRestaurant.DataAccess
 
         public IEnumerable<User> GetUsers()
         {
-            throw new NotImplementedException();
-            // return _db.Users.ToList();
+            return Mapper.Map(_db.Users);
         }
 
-        public User GetUsersByName(string fName, string lName)
+        public IEnumerable<User> GetUsersByName(string fName, string lName)
         {
-            throw new NotImplementedException();
-            // return _db.Users.ToList();
+            return Mapper.Map(_db.Users.Where(u => u.FirstName == fName && u.LastName == lName));
         }
 
         public void InsertUser(User user)

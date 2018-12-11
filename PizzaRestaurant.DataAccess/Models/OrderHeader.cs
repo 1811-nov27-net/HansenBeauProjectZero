@@ -11,7 +11,7 @@ namespace PizzaRestaurant.DataAccess
         }
 
         public int OrderId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public int OrderAddressId { get; set; }
         public int TotalCost { get; set; }
         public DateTime OrderDate { get; set; }
