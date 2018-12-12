@@ -7,5 +7,7 @@ namespace PizzaRestaurant.Library
     public interface IProductsRepository
     {
         IEnumerable<Product> GetProducts();
+        Product GetProductByID(int productId);
+        void Save();
     }
 }

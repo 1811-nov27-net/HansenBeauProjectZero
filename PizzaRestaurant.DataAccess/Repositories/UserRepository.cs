@@ -28,6 +28,7 @@ namespace PizzaRestaurant.DataAccess
 
         public IEnumerable<User> GetUsersByName(string fName, string lName)
         {
+            // what happens when either input in null? make it so that it doesn't search by that (broader search)
             return Mapper.Map(_db.Users.Where(u => u.FirstName == fName && u.LastName == lName));
         }
 

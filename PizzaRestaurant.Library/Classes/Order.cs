@@ -11,25 +11,21 @@ namespace PizzaRestaurant.Library
             
         }
 
-        private int _orderID;
         public int orderID { get; set; }
 
-        private int _userID;
         public int userID { get; set; }
 
-        private int _orderAddressId;
         public int orderAddressID { get; set; }
 
         public List<Product> orderProducts { get; set; } = new List<Product>();
 
-        private int _totalCost;
         public int totalCost { get; set; }
 
-        private DateTime _orderDate;
         public DateTime orderDate { get; set; }
 
-        private int _storeId;
         public int storeId { get; set; }
+
+        public List<OrderDetail> orderDetail { get; set; } = new List<OrderDetail>();
 
         public void AddToOrder(Product product)
         {
@@ -37,11 +33,30 @@ namespace PizzaRestaurant.Library
             {
                 this.orderProducts.Add(product);
                 this.totalCost += product.unitPrice;
+                
                 if (totalCost > 500)
                 {
                     Console.WriteLine("You cannot exceed $500 for an order. Product not added.");
                     this.orderProducts.Remove(product);
                     this.totalCost -= product.unitPrice;
+                }
+                else
+                {
+                    bool insert = true;
+                    
+                    foreach (var item in orderDetail)
+                    {
+                        if (item.ProductId == product.productID)
+                        {
+                            insert = false;
+                            item.QtyOrdered++;
+                        }
+                    }
+
+                    if(insert == true)
+                    {
+                        orderDetail.Add(new OrderDetail() { ProductId = product.productID, QtyOrdered = 1 });
+                    }
                 }
                 Console.WriteLine("Product added to order.");
             }

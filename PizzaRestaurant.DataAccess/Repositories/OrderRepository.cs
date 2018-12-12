@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using PizzaRestaurant.Library;
 
 namespace PizzaRestaurant.DataAccess
@@ -21,24 +22,40 @@ namespace PizzaRestaurant.DataAccess
             _db.Remove(_db.OrderDetail.Find(orderID));
         }
 
-        public Order DisplayOrderDetails(Order order)
+        public void DisplayOrderDetailsByOrderID(int orderID)
         {
-            throw new NotImplementedException();
+            Order orderToDisplay = GetOrderByOrderId(orderID);
+            Console.WriteLine("Order ID: " + orderToDisplay.orderID + " ");
+            Console.WriteLine("User ID: " + orderToDisplay.userID + " ");
+            Console.WriteLine("Order Address ID: " + orderToDisplay.orderAddressID + " ");
+            Console.WriteLine("Total Cost: $" + orderToDisplay.totalCost + " ");
+            Console.WriteLine("Order Date ID: " + orderToDisplay.orderDate + " ");
+            Console.WriteLine("Store ID: " + orderToDisplay.storeId + " ");
+            List<Product> listOfProducts = GetProductsOfOrderByID(orderID).ToList();
+            Console.WriteLine("Products in the order");
+            foreach (var item in listOfProducts)
+            {
+                Console.WriteLine("here");
+                Console.WriteLine("Product: " + item.productName + "Unit Price: " + item.unitPrice);
+            }
         }
 
         public IEnumerable<Order> GetOrders()
         {
-            throw new NotImplementedException();
+           return Mapper.Map(_db.OrderHeader);
         }
 
         public void InsertOrder(Order order)
         {
+            _db.OrderHeader.Include(o => o.OrderDetail);
             _db.Add(Mapper.Map(order));
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            _db.SaveChanges();
+            Console.WriteLine("Order saved to database");
+
         }
 
         public void UpdateOrder(Order order)
@@ -60,12 +77,36 @@ namespace PizzaRestaurant.DataAccess
         public IEnumerable<Order> DisplayOrderHistoryUser(int user)
         {
             IEnumerable<Order> orderCollection = Mapper.Map(_db.OrderHeader);
-            return orderCollection.OrderBy(o => o.orderDate);
+            return orderCollection.OrderBy(o => o.orderDate).Where(o => o.userID == user);
         }
 
         public IEnumerable<Order> DisplayOrderHistory(string sortOrder)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Product> GetProductsOfOrderByID(int orderID)
+        {
+            List<DataAccess.OrderDetail> orderDetailInter = _db.OrderDetail.Where(o => o.OrderId == orderID).ToList();
+            List<Product> orderProducts = new List<Product>();
+            ProductsRepository productRepo = new ProductsRepository(_db);
+            foreach (var item in orderDetailInter)
+            {
+                Product product = productRepo.GetProductByID(item.ProductId);
+                orderProducts.Add(product);
+            }
+            return orderProducts;
+        }
+
+        public Order GetOrderByOrderId(int orderID)
+        {
+            return Mapper.Map(_db.OrderHeader.Where(o => o.OrderId == orderID).First());
+        }
+
+        public int getLastId()
+        {
+            Order o = Mapper.Map(_db.OrderHeader.OrderByDescending(or => or.OrderId).First());
+            return o.orderID;
         }
     }
 }
