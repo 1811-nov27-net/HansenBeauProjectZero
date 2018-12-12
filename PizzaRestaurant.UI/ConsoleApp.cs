@@ -64,11 +64,11 @@ namespace PizzaRestaurant.UI
                     Console.WriteLine("o - place an order");
                     Console.WriteLine("u - look up a user");
                     Console.WriteLine("h - display order history");
-                    Console.WriteLine("x - exit the console application");
+                    Console.WriteLine("x - go back to login screen");
                     string choice = Console.ReadLine();
                     if (choice == "o")
                     {
-                        List<Order> orderSuggestList = orderRepository.DisplayOrderHistoryUser(signedIn.userID).ToList();
+                        List<Order> orderSuggestList = orderRepository.DisplayOrderHistoryUser(signedIn.userID).OrderByDescending(o => o.orderDate).ToList();
                         Order orderSuggest = orderSuggestList[0];
                         Console.WriteLine("So you want to place an order?");
                         Console.WriteLine("Your most recent order on record is ");
@@ -194,6 +194,7 @@ namespace PizzaRestaurant.UI
                             // adding choice to order
                             order1.storeId = storeAddInt;
 
+                             ////////////////////////////////////////////////////////////////
                             // displaying available products
                             Console.WriteLine("Here are our available products.");
                             List<Product> productList = productsRepository.GetProducts().ToList();

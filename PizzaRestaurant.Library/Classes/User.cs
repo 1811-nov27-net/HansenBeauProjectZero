@@ -6,9 +6,13 @@ namespace PizzaRestaurant.Library
 {
     public class User
     {
+        public User()
+        {
+                
+        }
+
         public int userID { get; set; }
 
-        
         public string firstName { get; set; }
 
         public string lastName { get; set; }

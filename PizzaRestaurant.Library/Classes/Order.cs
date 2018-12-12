@@ -19,7 +19,30 @@ namespace PizzaRestaurant.Library
 
         public List<Product> orderProducts { get; set; } = new List<Product>();
 
-        public int totalCost { get; set; }
+        private int _totalCost;
+        public int totalCost
+        {
+           get => _totalCost;
+            set
+            {
+                if (value <= 500 && value >= 0)
+                {
+                    _totalCost = value;
+                }
+                else if (value > 500)
+                {
+                    Console.WriteLine("Cannot set (or otherwise have) a total cost in excess of $500");
+                    _totalCost = 500;
+                    Console.WriteLine("The total cost for this order has been set to $500");
+                }
+                else if (value < 0)
+                {
+                    Console.WriteLine("Cannot set a total cost to a negative number");
+                    _totalCost = 0;
+                    Console.WriteLine("The total cost for this prder has been set to $0");
+                }
+            }
+        }
 
         public DateTime orderDate { get; set; }
 
