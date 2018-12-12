@@ -273,8 +273,8 @@ namespace PizzaRestaurant.UI
                         if (lookUpChoice.ToLower() == "n")
                         {
                             Console.WriteLine("To look up by name, type the first name and last name.");
-                            Console.WriteLine("If you only want to search by first name, leave last name blank.");
-                            Console.WriteLine("If you only want to search by last name, leave first name blank.");
+                            //Console.WriteLine("If you only want to search by first name, leave last name blank.");
+                            //Console.WriteLine("If you only want to search by last name, leave first name blank.");
                             Console.Write("First Name: ");
                             string inputFirstNameSearch = Console.ReadLine();
                             Console.Write("Last Name: ");
