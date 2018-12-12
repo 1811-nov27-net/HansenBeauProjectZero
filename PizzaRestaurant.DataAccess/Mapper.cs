@@ -78,16 +78,16 @@ namespace PizzaRestaurant.DataAccess
             unitPrice = product.UnitPrice
         };
 
-        //public static Library.Address Map(DataAccess.Address address) => new Library.Address
-        //{
-        //    addressID = address.AddressId,
-        //    userID = address.UserId,
-        //    addressLine1 = address.AddressLine1,
-        //    addressLine2 = address.AddressLine2,
-        //    city = address.City,
-        //    state = address.State,
-        //    zipCode = address.Zipcode
-        //};
+        public static Library.Address Map(DataAccess.Address address) => new Library.Address
+        {
+            addressID = address.AddressId,
+            userID = address.UserId,
+            addressLine1 = address.AddressLine1,
+            addressLine2 = address.AddressLine2,
+            city = address.City,
+            state = address.State,
+            zipCode = address.Zipcode
+        };
 
 
 

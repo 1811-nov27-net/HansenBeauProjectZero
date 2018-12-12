@@ -15,9 +15,9 @@ namespace PizzaRestaurant.DataAccess
             _db = db ?? throw new ArgumentNullException(nameof(db));
         }
 
-        public IEnumerable<Library.Address> GetAddresses()
-        {
-            return Mapper.Map(_db.Address);
-        }
+        //public IEnumerable<Library.Address> GetAddresses()
+        //{
+        //    return Mapper.Map(_db.Address);
+        //}
     }
 }

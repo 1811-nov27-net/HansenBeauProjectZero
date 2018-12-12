@@ -45,19 +45,23 @@ namespace PizzaRestaurant.UI
                 string signInFName = Console.ReadLine();
                 Console.Write("Last Name: ");
                 string signInLName = Console.ReadLine();
+                if (signInFName.ToLower() == "exit" || signInLName.ToLower() == "exit")
+                {
+                    break;
+                }
                 // exception handling for not a valid sign in name
                 // also include way to exit the console app
+
                 List<User> signedInList = userRepository.GetUsersByName(signInFName, signInLName).ToList();
                 User signedIn = signedInList[0];
 
-                while (true)
+                bool smallLoop = true;
+                while (smallLoop == true)
                 {
                     Console.WriteLine("What do you want to do?");
                     Console.WriteLine("o - place an order");
                     Console.WriteLine("u - look up a user");
                     Console.WriteLine("h - display order history");
-                    Console.WriteLine("s - save to database");
-                    Console.WriteLine("l - load from database");
                     Console.WriteLine("x - exit the console application");
                     string choice = Console.ReadLine();
                     if (choice == "o")
@@ -223,18 +227,53 @@ namespace PizzaRestaurant.UI
                         Console.WriteLine("How do you want to look up orders?");
                         Console.WriteLine("l - location");
                         Console.WriteLine("u - user");
+                        Console.WriteLine("s - sort all");
                         string lookUpChoice = Console.ReadLine();
-                        while (!(lookUpChoice.ToLower() == "l" || lookUpChoice.ToLower() == "u"))
+                        while (!(lookUpChoice.ToLower() == "l" || lookUpChoice.ToLower() == "u" || lookUpChoice.ToLower() == "s"))
                         {
-                            Console.WriteLine("Not a valid choice. Please type either 'l' or 'u'.");
+                            Console.WriteLine("Not a valid choice. Please type either 'l', 'u', or 's'.");
                             Console.WriteLine("How do you want to look up orders?");
                             Console.WriteLine("l - location");
                             Console.WriteLine("u - user");
+                            Console.WriteLine("s - sort all");
                             lookUpChoice = Console.ReadLine();
                         }
                         if (lookUpChoice.ToLower() == "l")
                         {
-
+                            Console.WriteLine("Please provide store ID");
+                            Console.Write("Store ID: ");
+                            string storeIdToLookUp = Console.ReadLine();
+                            bool parseSuccess = Int32.TryParse(storeIdToLookUp, out int storeIdToLookUpInt);
+                            while (parseSuccess == false)
+                            {
+                                Console.WriteLine("Not a valid choice. Please enter a valid Store ID.");
+                                Console.WriteLine("Please provide Store ID");
+                                Console.Write("Store ID: ");
+                                storeIdToLookUp = Console.ReadLine();
+                                parseSuccess = Int32.TryParse(storeIdToLookUp, out storeIdToLookUpInt);
+                            }
+                            List<Order> orderHistory = orderRepository.DisplayOrderHistoryStore(storeIdToLookUpInt).ToList();
+                            Console.Write("(Order ID) ");
+                            Console.Write("(Order Address ID) ");
+                            Console.Write("(Total Cost) ");
+                            Console.Write("(Order DateTime) ");
+                            Console.Write("(Order Store ID) ");
+                            Console.WriteLine();
+                            for (int i = 1; i < orderHistory.Count() + 1; i++)
+                            {
+                                Order orderhistory = orderHistory[i - 1];
+                                string orderIdString = $"{i}: \"{orderhistory.orderID}\"";
+                                string orderAddressIdString = $"\"{orderhistory.orderAddressID}\"";
+                                string orderTotalCostString = $"\"{orderhistory.totalCost}\"";
+                                string orderDateTimeString = $"\"{orderhistory.orderDate}\"";
+                                string orderStoreIdString = $"\"{orderhistory.storeId}\"";
+                                Console.Write(orderIdString + " ");
+                                Console.Write(orderAddressIdString + " ");
+                                Console.Write(orderTotalCostString + " ");
+                                Console.Write(orderDateTimeString + " ");
+                                Console.Write(orderStoreIdString + " ");
+                                Console.WriteLine();
+                            }
                         }
                         else if (lookUpChoice.ToLower() == "u")
                         {
@@ -273,21 +312,42 @@ namespace PizzaRestaurant.UI
                                 Console.WriteLine();
                             }
                         }
-                    }
-                    else if (choice == "s")
-                    {
-
-                    }
-                    else if (choice == "l")
-                    {
-
+                        else if (lookUpChoice.ToLower() == "s")
+                        {
+                            Console.WriteLine("So you want to look up all users.");
+                            Console.WriteLine("How would you like to sort the results?");
+                            Console.WriteLine("e - earliest first");
+                            Console.WriteLine("l - latest first");
+                            Console.WriteLine("c - cheapest first");
+                            Console.WriteLine("x - most expensive first");
+                            string lookUpSortChoice = Console.ReadLine();
+                            while (!(lookUpSortChoice.ToLower() == "e" || lookUpSortChoice.ToLower() == "l" || lookUpSortChoice.ToLower() == "c" || lookUpSortChoice.ToLower() == "x"))
+                            {
+                                Console.WriteLine("Invalid choice. Please type either 'e', 'l' 'c', or 'x'.");
+                                Console.WriteLine("How would you like to sort the results?");
+                                Console.WriteLine("e - earliest first");
+                                Console.WriteLine("l - latest first");
+                                Console.WriteLine("c - cheapest first");
+                                Console.WriteLine("x - most expensive first");
+                                lookUpSortChoice = Console.ReadLine();
+                            }
+                            List<Order> collectionOfOrders = orderRepository.DisplayOrderHistory(lookUpSortChoice).ToList();
+                            foreach (var item in collectionOfOrders)
+                            {
+                                Console.Write("Order ID: " + item.orderID + " ");
+                                Console.Write("User ID: " + item.userID + " ");
+                                Console.Write("Order Address ID: " + item.orderAddressID + " ");
+                                Console.Write("Total Cost: " + item.totalCost + " ");
+                                Console.Write("Order DateTime: " + item.orderDate + " ");
+                                Console.Write("Store ID: " + item.storeId);
+                                Console.WriteLine();
+                            }
+                        }
                     }
                     else if (choice == "x")
                     {
-                        break;
+                        smallLoop = false;
                     }
-
-                    //string signInfName = dbContext.Users.Where(u => u.FirstName == signInfName)
                 }
             }
         }

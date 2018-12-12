@@ -80,9 +80,42 @@ namespace PizzaRestaurant.DataAccess
             return orderCollection.OrderBy(o => o.orderDate).Where(o => o.userID == user);
         }
 
+        public IEnumerable<Order> DisplayOrderHistoryStore(int store)
+        {
+            IEnumerable<Order> orderCollection = Mapper.Map(_db.OrderHeader);
+            return orderCollection.Where(o => o.storeId == store);
+        }
+
         public IEnumerable<Order> DisplayOrderHistory(string sortOrder)
         {
-            throw new NotImplementedException();
+            if (sortOrder.ToLower() == "e")
+            {
+                IEnumerable<Order> orderHistory = Mapper.Map(_db.OrderHeader);
+                return orderHistory.OrderBy(o => o.orderDate);
+            }
+            else if (sortOrder.ToLower() == "l")
+            {
+                IEnumerable<Order> orderHistory = Mapper.Map(_db.OrderHeader);
+                return orderHistory.OrderByDescending(o => o.orderDate);
+            }
+            else if (sortOrder.ToLower() == "c")
+            {
+                IEnumerable<Order> orderHistory = Mapper.Map(_db.OrderHeader);
+                return orderHistory.OrderBy(o => o.totalCost);
+            }
+            else if (sortOrder.ToLower() == "x")
+            {
+                IEnumerable<Order> orderHistory = Mapper.Map(_db.OrderHeader);
+                return orderHistory.OrderByDescending(o => o.totalCost);
+            }
+            else
+            {
+                // this is the same code a sfor the case "earliest"
+                // I am using it as a default, and I will check for valid inputs in the 
+                // ConsoleApp
+                IEnumerable<Order> orderHistory = Mapper.Map(_db.OrderHeader);
+                return orderHistory.OrderBy(o => o.orderDate);
+            }
         }
 
         public IEnumerable<Product> GetProductsOfOrderByID(int orderID)
@@ -103,10 +136,13 @@ namespace PizzaRestaurant.DataAccess
             return Mapper.Map(_db.OrderHeader.Where(o => o.OrderId == orderID).First());
         }
 
+
         public int getLastId()
         {
             Order o = Mapper.Map(_db.OrderHeader.OrderByDescending(or => or.OrderId).First());
             return o.orderID;
         }
+
+        
     }
 }

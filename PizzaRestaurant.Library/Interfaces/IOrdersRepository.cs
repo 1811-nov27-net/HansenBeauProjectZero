@@ -15,6 +15,7 @@ namespace PizzaRestaurant.Library
         void DisplayOrderDetailsByOrderID(int orderID);
         IEnumerable<Order> DisplayOrderHistoryAddress(int address);
         IEnumerable<Order> DisplayOrderHistoryUser(int user);
+        IEnumerable<Order> DisplayOrderHistoryStore(int store);
         IEnumerable<Order> DisplayOrderHistory(string sortOrder);
         int getLastId();
         void Save();

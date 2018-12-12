@@ -6,7 +6,7 @@ namespace PizzaRestaurant.Library
 {
     public interface IAddressRepository
     {
-        IEnumerable<Address> GetAddresses();
+        //IEnumerable<Address> GetAddresses();
         // Product GetProductByID(int productId);
     }
 }
