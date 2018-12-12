@@ -35,7 +35,6 @@ namespace PizzaRestaurant.DataAccess
             Console.WriteLine("Products in the order");
             foreach (var item in listOfProducts)
             {
-                Console.WriteLine("here");
                 Console.WriteLine("Product: " + item.productName + "Unit Price: " + item.unitPrice);
             }
         }
