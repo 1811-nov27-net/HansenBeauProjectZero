@@ -21,6 +21,7 @@ namespace PizzaRestaurant.UI
             OrderRepository orderRepository = new OrderRepository(dbContext);
             ProductsRepository productsRepository = new ProductsRepository(dbContext);
             AddressRepository addressRepository = new AddressRepository(dbContext);
+            StoreRepository storeRepository = new StoreRepository(dbContext);
 
             Console.WriteLine("Welcome to Ita D'Pizza!");
             List<Order> orderAddressList = orderRepository.DisplayOrderHistoryAddress(1).ToList();
@@ -158,6 +159,40 @@ namespace PizzaRestaurant.UI
                             }
                             // adding choice to order
                             order1.orderAddressID = addressAddInt;
+
+                            //////////////////////////////////////////////////////////////////////////////////////////
+                            // displaying available stores
+                            Console.WriteLine("Here are our available stores.");
+                            List<Library.Store> storeList = storeRepository.GetStores().ToList();
+                            for (int i = 1; i < addressList.Count() + 1; i++)
+                            {
+                                Library.Store storelist = storeList[i - 1];
+                                string storeIDString = $"{i}: \"{storelist.storeID}\"";
+                                string storeAddressLine1String = $"{i}: \"{storelist.sAddressLine1}\"";
+                                string storeAddressLine2String = $"{i}: \"{storelist.sAddressLine2}\"";
+                                string storeCityString = $"{i}: \"{storelist.sCity}\"";
+                                string storeStateString = $"{i}: \"{storelist.sState}\"";
+                                string storeZipCodeString = $"{i}: \"{storelist.sZipCode}\"";
+                                Console.Write(storeIDString + " ");
+                                Console.Write(storeAddressLine1String + " ");
+                                Console.Write(storeAddressLine2String + " ");
+                                Console.Write(storeCityString + " ");
+                                Console.Write(storeStateString + " ");
+                                Console.WriteLine(storeZipCodeString);
+                            }
+                            // Parsing storeID choice
+                            Console.WriteLine("Please type the Store ID of the store you would like to order from");
+                            string storeAddChoice = Console.ReadLine();
+                            bool parseSuccessStore = Int32.TryParse(storeAddChoice, out int storeAddInt);
+                            while (parseSuccessStore == false || (parseSuccessStore == true && storeAddInt > storeList.Count()))
+                            {
+                                Console.WriteLine("Not a valid choice. Please enter a valid integer.");
+                                Console.WriteLine("Please type the Store ID of the store you would like to order from.");
+                                storeAddChoice = Console.ReadLine();
+                                parseSuccessStore = Int32.TryParse(storeAddChoice, out storeAddInt);
+                            }
+                            // adding choice to order
+                            order1.storeId = storeAddInt;
 
                             // displaying available products
                             Console.WriteLine("Here are our available products.");
