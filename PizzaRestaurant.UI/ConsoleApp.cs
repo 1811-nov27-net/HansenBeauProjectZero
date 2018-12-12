@@ -20,6 +20,7 @@ namespace PizzaRestaurant.UI
             UserRepository userRepository = new UserRepository(dbContext);
             OrderRepository orderRepository = new OrderRepository(dbContext);
             ProductsRepository productsRepository = new ProductsRepository(dbContext);
+            AddressRepository addressRepository = new AddressRepository(dbContext);
 
             Console.WriteLine("Welcome to Ita D'Pizza!");
             List<Order> orderAddressList = orderRepository.DisplayOrderHistoryAddress(1).ToList();
@@ -114,14 +115,51 @@ namespace PizzaRestaurant.UI
                         }
                         else if (resubmit.ToLower() == "no")
                         {
+                            
                             Console.WriteLine("Okay, we will build a new order for you.");
-                            Order order1 = new Order();
 
+                            // Instantiating new order with default values
+                            Order order1 = new Order();
                             order1.orderAddressID = orderSuggest.orderAddressID;
                             order1.userID = signedIn.userID;
                             order1.totalCost = 0;
                             order1.orderDate = DateTime.Now;
                             order1.storeId = orderSuggest.storeId;
+
+                            // displaying available addresses
+                            Console.WriteLine("Here are our available addresses.");
+                            List<Library.Address> addressList = addressRepository.GetAddresses().ToList();
+                            for (int i = 1; i < addressList.Count() + 1; i++)
+                            {
+                                Library.Address addresslist = addressList[i - 1];
+                                string addressIdString = $"{i}: \"{addresslist.addressID}\"";
+                                string addressLine1String = $"{i}: \"{addresslist.addressLine1}\"";
+                                string addressLine2String = $"{i}: \"{addresslist.addressLine2}\"";
+                                string addressCityString = $"{i}: \"{addresslist.city}\"";
+                                string addressStateString = $"{i}: \"{addresslist.state}\"";
+                                string addressZipCodeString = $"{i}: \"{addresslist.zipCode}\"";
+                                Console.Write(addressIdString + " ");
+                                Console.Write(addressLine1String + " ");
+                                Console.Write(addressLine2String + " ");
+                                Console.Write(addressCityString + " ");
+                                Console.Write(addressStateString + " ");
+                                Console.WriteLine(addressZipCodeString);
+                            }
+                            // Parsing addressID choice
+                            Console.WriteLine("Please type the Address ID of the address you would like the order to be delivered to.");
+                            string addressAddChoice = Console.ReadLine();
+                            bool parseSuccessAddress = Int32.TryParse(addressAddChoice, out int addressAddInt);
+                            while (parseSuccessAddress == false || (parseSuccessAddress == true && addressAddInt > addressList.Count()))
+                            {
+                                Console.WriteLine("Not a valid choice. Please enter a valid integer.");
+                                Console.WriteLine("Please type the Product ID of the product you would like to add to your order.");
+                                addressAddChoice = Console.ReadLine();
+                                parseSuccessAddress = Int32.TryParse(addressAddChoice, out addressAddInt);
+                            }
+                            // adding choice to order
+                            order1.orderAddressID = addressAddInt;
+
+                            // displaying available products
                             Console.WriteLine("Here are our available products.");
                             List<Product> productList = productsRepository.GetProducts().ToList();
                             for (int i = 1; i < productList.Count() + 1; i++)
@@ -132,6 +170,8 @@ namespace PizzaRestaurant.UI
                                 Console.Write(productIdString + " ");
                                 Console.WriteLine(productNameString);
                             }
+
+                            // deciding if user wants to add a product to order
                             Console.WriteLine("Would you like to add a product to your order? Type 'yes' or 'no'.");
                             string addAProduct = Console.ReadLine();
                             while (!(addAProduct.ToLower() == "yes" || addAProduct.ToLower() == "no"))
@@ -140,23 +180,28 @@ namespace PizzaRestaurant.UI
                                 Console.WriteLine("Would you like to add a product to your order? Type 'yes' or 'no'.");
                                 addAProduct = Console.ReadLine();
                             }
+
+                            // adding product to order
                             if (addAProduct.ToLower() == "yes")
                             {
                                 
                                 while (addAProduct.ToLower() == "yes")
                                 {
+                                    // getting user input for which product to add
                                     Console.WriteLine("Please type the Product ID of the product you would like to add to your order.");
                                     string productAddChoice = Console.ReadLine();
-                                    bool parseSuccess = Int32.TryParse(productAddChoice, out int productAddInt);
-                                    while (parseSuccess == false || (parseSuccess == true && productAddInt > productList.Count()))
+                                    bool parseSuccessProduct = Int32.TryParse(productAddChoice, out int productAddInt);
+                                    while (parseSuccessProduct == false || (parseSuccessProduct == true && productAddInt > productList.Count()))
                                     {
                                         Console.WriteLine("Not a valid choice. Please enter a valid integer.");
                                         Console.WriteLine("Please type the Product ID of the product you would like to add to your order.");
                                         productAddChoice = Console.ReadLine();
-                                        parseSuccess = Int32.TryParse(productAddChoice, out productAddInt);
+                                        parseSuccessProduct = Int32.TryParse(productAddChoice, out productAddInt);
                                     }
                                     Product productToAdd = productsRepository.GetProductByID(productAddInt);
                                     order1.AddToOrder(productToAdd);
+
+                                    // logic to enable indefinite product adding
                                     Console.WriteLine("Would you like to add another product to your order? Type 'yes' or 'no'.");
                                     addAProduct = Console.ReadLine();
                                     while (!(addAProduct.ToLower() == "yes" || addAProduct.ToLower() == "no"))
@@ -166,6 +211,8 @@ namespace PizzaRestaurant.UI
                                         addAProduct = Console.ReadLine();
                                     }
                                 }
+
+                                // Inserting, Saving and displaying order
                                 orderRepository.InsertOrder(order1);
                                 orderRepository.Save();
                                 orderRepository.DisplayOrderDetailsByOrderID(orderRepository.getLastId());

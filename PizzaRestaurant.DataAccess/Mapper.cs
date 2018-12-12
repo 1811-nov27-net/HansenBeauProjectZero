@@ -89,6 +89,16 @@ namespace PizzaRestaurant.DataAccess
             zipCode = address.Zipcode
         };
 
+        public static Library.Store Map(DataAccess.Store store) => new Library.Store
+        {
+            storeID = store.StoreId,
+            sAddressLine1 = store.SaddressLine1,
+            sAddressLine2 = store.SaddressLine2,
+            sCity = store.Scity,
+            sState = store.Sstate,
+            sZipCode = store.Szipcode
+        };
+
 
 
 
@@ -113,6 +123,11 @@ namespace PizzaRestaurant.DataAccess
         public static IEnumerable<Order> Map(IEnumerable<OrderHeader> order) => order.Select(Map);
 
         public static IEnumerable<Product> Map(IEnumerable<Products> product) => product.Select(Map);
+
+
+        public static IEnumerable<Library.Address> Map(IEnumerable<Address> address) => address.Select(Map);
+
+        public static IEnumerable<Library.Store> Map(IEnumerable<Store> store) => store.Select(Map);
     }
 }
 
